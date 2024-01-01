@@ -9,15 +9,20 @@
     --accent-color: rgb(159, 198, 230);
 }
 
-
+@font-face {
+  font-family: 'Flare';
+  font-weight: 400;
+  font-style: normal;
+  src: url('Flare-Regular.otf');
+}
 body {
-  font-family: 'Titillium Web';
+  font-family: 'Flare';
   font-weight: 400;
   background-color: var(--background-color);
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: 'Poppins';
+h1, h2, h3, h4, h5, span, strong {
+  font-family: 'Flare';
   font-weight: 700;
   color: var(--text-color);
 }
@@ -75,31 +80,6 @@ body::-webkit-scrollbar-thumb {
   flex-direction: column;
   padding-top: 7vh;
 }
-#settings-container {
-  align-items: center;
-  display: grid;
-  float: right;
-  padding-right: 5px;
-  padding-top: 10px;
-}
-#settings-btn {
-  position: relative;
-  right: 0px;
-  height: 25.59px;
-}
-#settings-btn:hover #settings-svg {
-  animation: spin 200ms linear infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(60deg);
-  }
-}
-
 #logo {
   line-height: 200px;
     height: 200px;
@@ -225,6 +205,7 @@ background-color: #9fc6e6;
   border-color: var(--primary-color);
   background-color: var(--background-color);
   align-items: center;
+  font-family: 'Flare';
 }
 .quicklink:hover {
   background-color: var(--primary-color);
@@ -249,141 +230,4 @@ background-color: #9fc6e6;
   position: relative;
   font: 400 12px/15px Inter, sans-serif;
   font-size: 20px;
-}
-#add-quicklink {
-  margin-left: 300px;
-  margin-right: 300px;
-}
-.add-quicklink-icon {
-  aspect-ratio: 1;
-  height: 40px;
-  justify-self: center;
-}
-#add-quicklink:hover .add-quicklink-icon {
-  fill:var(--text3-color)
-}
-.modal {
-  padding: 1em;
-  max-width: 50ch;
-  border: 5px solid;
-  border-color: var(--primary-color);
-  box-shadow: none;
-}
-
-.modal::-webkit-backdrop {
-  background: rgba(0, 0, 0, 0.4);
-}
-
-.modal::backdrop {
-  background: rgba(0, 0, 0, 0.4);
-}
-
-form {
-  display: grid;
-  gap: 1em;
-}
-#settings-container {
-  .drawer {
-    display: none;
-  }
-  .drawer__overlay {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    z-index: 10;
-    opacity: 0;
-    transition: opacity 0.3s;
-    will-change: opacity;
-    background-color: var(--background-color);
-
-    -webkit-user-select: none;
-    -moz-user-select: none;
-    -ms-user-select: none;
-    user-select: none;
-  }
-
-  .drawer__header {
-    /* Optional */
-    padding: 1.5rem;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    color: var(--text-color);
-    font-size: 30px;
-  }
-
-  .pic {
-    background-color: #969696;
-  }
-
-  
-
-  .drawer__wrapper {
-    position: fixed;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    height: 100%;
-    width: 100%;
-    max-width: 500px;
-    z-index: 9999;
-    overflow: auto;
-
-    border: 3px solid;
-    border-top: var(--primary-color) !important;
-    border-left-color: var(--primary-color) !important;
-    border-color: var(--background-color);
-
-    transition: transform 0.3s;
-    will-change: transform;
-    background-color: var(--background-color);
-
-    display: flex;
-    flex-direction: column;
-
-    -webkit-transform: translateX(103%);
-    transform: translateX(103%); /* extra 3% because of box-shadow */
-
-    -webkit-overflow-scrolling: touch; /* enables momentum scrolling in iOS overflow elements */
-
-    /* Optional */
-    box-shadow: 0 px 6px #777;
-  }
-
-  .drawer__content {
-    position: relative;
-    overflow-x: hidden;
-    overflow-y: auto;
-    height: 100%;
-    flex-grow: 1;
-    color: var(--text-color);
-    background-color: var(--background-color);
-    padding: 1.5rem;
-  }
-  #display {
-    background-color: var(--background-color);
-  }
-
-  .drawer--left .drawer__wrapper {
-    left: 0;
-    right: auto;
-    -webkit-transform: translate3d(-100%, 0, 0);
-    transform: translate3d(-100%, 0, 0);
-  }
-
-  .drawer.is-active {
-    display: block;
-  }
-
-  .drawer.is-visible .drawer__wrapper {
-    -webkit-transform: translateX(0);
-    transform: translateX(0);
-  }
-
-  .drawer.is-visible .drawer__overlay {
-    opacity: 0.5;
-  }
 }
